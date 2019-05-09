@@ -73,7 +73,7 @@ class OverrideMode : public ModeHandler
 {
  public:
 	OverrideMode(Module* mod, unsigned char modechar)
-		: ModeHandler(mod, "permitoverride", modechar, PARAM_NONE, MODETYPE_USER)
+		: ModeHandler(mod, "override", modechar, PARAM_NONE, MODETYPE_USER)
 	{
 		oper = true;
 	}
@@ -109,7 +109,7 @@ class OverrideMode : public ModeHandler
 			else
 			{
 				// Remove this oper from the list
-				for (ActiveOperList::iterator i = activeopers.end(); i != activeopers.end(); ++i)
+				for (ActiveOperList::iterator i = activeopers.begin(); i != activeopers.end(); ++i)
 				{
 					ActiveOper& item = *i;
 					if (item.uuid == dest->uuid)
